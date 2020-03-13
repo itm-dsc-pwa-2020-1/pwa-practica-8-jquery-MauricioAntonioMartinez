@@ -1,0 +1,6 @@
+<?php
+
+echo 'ESTO ES TEXTO CARGADO DE UNA ARCHIVO PHP';
+
+
+?>

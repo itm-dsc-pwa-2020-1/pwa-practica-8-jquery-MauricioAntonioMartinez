@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="diseño.css" />
+    <script lenguage="JavaScript" src="jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/main.js"></script>
+
+    <title>Ejemplos Jquery</title>
+  </head>
+  <body>
+    <script>
+      $(document).ready(function() {
+        $(".boton").click(function() {
+          $(".elements").toggle("slow", function() {});
+        });
+        $(".carga").click(function() {
+          $.ajax({
+            url: "texto.txt",
+            success: function(data) {
+              $(".texto").append(data);
+            }
+          });
+        });
+
+        function loop() {
+          $("#clouds").css({ right: 200 });
+          $("#clouds").animate(
+            {
+              right: "+=400"
+            },
+            5000,
+            "linear",
+            function() {
+              loop();
+            }
+          );
+        }
+        loop();
+
+        $(".btn").click(function() {
+          var img = $(".cambio");
+          if (img.width() == 400) {
+            img.animate({
+              width: "800px"
+            });
+          } else {
+            img.animate({
+              width: "400px"
+            });
+          }
+        });
+      });
+    </script>
+    <div class="contenedor">
+      <div class="titulo">
+        <div class="titu">
+          Ejemplos de Jquery
+        </div>
+      </div>
+
+      <div class="menu">
+        <div class="mn">
+          <div class="elements">
+            <ul class="slid">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Acerca de</a></li>
+              <li><a href="#">Servicios</a></li>
+              <li><a href="#">Compras</a></li>
+              <li><a href="#">Contacto</a></li>
+            </ul>
+          </div>
+
+          <button class="boton">
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="slider">
+        <div class="slider-outer">
+          <img src="images/arrow-left.png" class="prev" alt="Prev" />
+          <div class="slider-inner">
+            <img src="images/image1.jpg" class="active" />
+            <img src="images/image2.jpg" />
+            <img src="images/image3.jpg" />
+            <img src="images/image4.jpg" />
+          </div>
+          <img src="images/arrow-right.png" class="next" alt="Next" />
+        </div>
+      </div>
+      <div class="carga">
+        <button class="carga">CARGA DATOS</button>
+        <p class="texto"></p>
+      </div>
+      <div class="ajax">
+        <div class="ajua">
+          <button id="boton">Animales AJAX</button>
+          <p id="animales"></p>
+        </div>
+      </div>
+      <div class="efecto">
+        <div id="clouds">
+          <img border="0" alt="animated clouds" src="emma.jpg" />
+        </div>
+      </div>
+      <div class="otro">
+        <button class="btn">Animacion</button>
+        <div class="cj">
+          <img class="cambio" alt="animated clouds" src="emma.jpg" />
+        </div>
+      </div>
+      <div class="nombre">
+        Mauricio Antonio Martinez Martinez
+      </div>
+    </div>
+  </body>
+  <script src="animales.js"></script>
+</html>
